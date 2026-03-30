@@ -1,0 +1,179 @@
+/* Date Range Picker Container */
+.date-range-picker-container {
+  background: var(--card-bg);
+  border: 1px solid var(--brd-light);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 16px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Date Range Display */
+.date-range-display {
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.date-range-label {
+  font-family: "Geist", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--txt-med);
+}
+
+.date-range-value {
+  font-family: "Geist", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Calendar Overrides for Date Range Picker */
+.date-range-picker-container .react-calendar {
+  min-width: 371px !important;
+  border: none !important;
+  width: 100%;
+  font-family: "Geist", sans-serif;
+}
+
+.date-range-picker-container .react-calendar__tile {
+  border-radius: 5px !important;
+  min-height: 45px !important;
+  max-width: 45px !important;
+  margin: 4px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding-top: 4px !important;
+  font-size: 14px !important;
+  transition: all 0.2s ease;
+}
+
+.date-range-picker-container .react-calendar__month-view__weekdays {
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--txt-med);
+  margin-bottom: 8px;
+}
+
+.date-range-picker-container .react-calendar__month-view__days__day {
+  font-family: "Geist", sans-serif !important;
+}
+
+.date-range-picker-container .react-calendar__month-view__days__day--weekend {
+  color: inherit !important;
+}
+
+/* Navigation styling */
+.date-range-picker-container .react-calendar__navigation button:enabled {
+  color: var(--main-hl) !important;
+  background-color: var(--main-hl-fade) !important;
+}
+
+.date-range-picker-container .react-calendar__navigation button:enabled:hover {
+  background: var(--main-hl-fade2) !important;
+}
+
+.date-range-picker-container .react-calendar__navigation button:first-child,
+.date-range-picker-container .react-calendar__navigation button:last-child {
+  border-radius: 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.date-range-picker-container .react-calendar__navigation button svg {
+  width: 20px !important;
+  height: 20px !important;
+  display: block !important;
+}
+
+.date-range-picker-container .react-calendar__navigation button:enabled svg path {
+  stroke: var(--main-hl) !important;
+}
+
+.date-range-picker-container .react-calendar__navigation button:disabled svg path {
+  stroke: #ccc !important;
+}
+
+.date-range-picker-container .react-calendar__navigation__label {
+  margin: 0 10px !important;
+  border: none;
+  border-radius: 50px;
+}
+
+.date-range-picker-container .react-calendar__navigation__label__labelText {
+  font-family: "Geist", sans-serif !important;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Selected date styling */
+.date-range-picker-in-range {
+  background: var(--main-hl-fade) !important;
+  color: var(--main-hl) !important;
+}
+
+.date-range-picker-in-range:hover {
+  background: var(--main-hl-fade2) !important;
+}
+
+.date-range-picker-selected,
+.react-calendar__tile--rangeEnd {
+  background: var(--main-hl) !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+.date-range-picker-selected:hover {
+  background: var(--main-hl) !important;
+  opacity: 0.9;
+}
+
+/* Today's date */
+.date-range-picker-container .react-calendar__tile--now {
+  background: #f0f0f0 !important;
+  font-weight: 600;
+}
+
+.date-range-picker-container .react-calendar__tile--now.date-range-picker-selected,
+.date-range-picker-container .react-calendar__tile--now.date-range-picker-in-range {
+  background: var(--main-hl-fade) !important;
+}
+
+/* Disabled dates */
+.date-range-picker-container .react-calendar__tile:disabled {
+  background: none !important;
+  color: #ccc !important;
+  cursor: not-allowed !important;
+}
+
+/* Help text */
+.date-range-help {
+  margin-top: 16px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  font-family: "Geist", sans-serif;
+  font-size: 13px;
+  color: var(--txt-med);
+  text-align: center;
+}
+
+/* Hover state for regular tiles */
+.date-range-picker-container .react-calendar__tile:enabled:hover {
+  background: #e8e8e8 !important;
+}
+
+.date-range-picker-container .react-calendar__tile--active {
+  background: var(--main-hl) !important;
+  color: white !important;
+}

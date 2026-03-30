@@ -1,0 +1,45 @@
+.container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    height: fit-content;
+    width: 400px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px solid var(--brd-light);
+    border-radius: 8px;
+    color: var(--txt-med);
+    background-color: var(--card-bg);
+}
+
+.thumbnails {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: -40px;
+}
+
+.thumbnail {
+    height: 65px;
+    width: 50px;
+    margin: 0 15px 0 0;
+    border: none;
+    border-radius: 5px;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.5;
+}
+.thumbnail:nth-child(1) {
+    opacity: 1;
+}
+
+.loadingContainer {
+    height: 35px;
+    width: 35px;
+    margin: auto 10px auto auto;
+}

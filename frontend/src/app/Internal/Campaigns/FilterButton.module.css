@@ -1,0 +1,118 @@
+.filterButton {
+	padding: 0 16px;
+	height: 42px;
+	background: var(--card-bg);
+	color: #333;
+	border: 1px solid var(--brd-light);
+	border-radius: 8px;
+	font-size: 15px;
+	font-weight: 500;
+	cursor: pointer;
+	white-space: nowrap;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.dropdownArrow svg {
+	height: 20px;
+	width: auto;
+	margin: 2px 0 0 0;
+}
+
+.dropdownContainer {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	margin-top: 4px;
+	background: var(--card-bg);
+	border: 1px solid var(--brd-light);
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+	z-index: 1000;
+	min-width: 250px;
+	padding: 8px 0;
+}
+
+.section {
+	padding: 0 8px;
+}
+
+.sectionHeader {
+	font-size: 12px;
+	color: #666;
+	padding: 8px 8px 4px;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.divider {
+	height: 1px;
+	background: #e0e0e0;
+	margin: 8px 0;
+}
+
+.filterOption {
+	width: 100%;
+	padding: 12px 15px;
+	text-align: left;
+	background: var(--card-bg);
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	font-size: 15px;
+	color: #333;
+	transition: all 0.2s ease-in-out;
+}
+
+.filterOption:hover {
+	background: #f5f5f5;
+}
+
+.filterOptionSelected {
+    background: var(--main-hl-fade2) !important;
+    color: var(--main-hl) !important;
+    font-weight: 500 !important;
+}
+
+.platformOption {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.platformIcon {
+	width: 16px;
+	height: 16px;
+	display: flex;
+	align-items: center;
+}
+
+.statusOption {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.statusIndicator {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+}
+
+.statusIndicatorActive {
+	background: #1e7e34;
+}
+
+.statusIndicatorArchive {
+	background: #757575;
+}
+
+.statusIndicatorComplete {
+	background: #1976d2;
+}
+
+.statusIndicatorDraft {
+	background: #5e35b1;
+} 

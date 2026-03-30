@@ -1,0 +1,214 @@
+/* Fonts */
+@font-face {
+  font-family: 'Geist';
+  src: url('./assets/fonts/geist/Geist_Thin.woff2') format('woff2'),
+      url('./assets/fonts/geist/Geist_Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist';
+  src: url('./assets/fonts/geist/Geist_UltraLight.woff2') format('woff2'),
+      url('./assets/fonts/geist/Geist_UltraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist';
+  src: url('./assets/fonts/geist/Geist_Light.woff2') format('woff2'),
+      url('./assets/fonts/geist/Geist_Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist';
+  src: url('./assets/fonts/geist/Geist_Regular.woff2') format('woff2'),
+      url('./assets/fonts/geist/Geist_Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist';
+  src: url('./assets/fonts/geist/Geist_Medium.woff2') format('woff2'),
+      url('./assets/fonts/geist/Geist_Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist';
+  src: url('./assets/fonts/geist/Geist_SemiBold.woff2') format('woff2'),
+      url('./assets/fonts/geist/Geist_SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist';
+  src: url('./assets/fonts/geist/Geist_Bold.woff2') format('woff2'),
+      url('./assets/fonts/geist/Geist_Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist';
+  src: url('./assets/fonts/geist/Geist_Black.woff2') format('woff2'),
+      url('./assets/fonts/geist/Geist_Black.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist UltraBlack';
+  src: url('./assets/fonts/geist/Geist_UltraBlack.woff2') format('woff2'),
+      url('./assets/fonts/geist/Geist_UltraBlack.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sansita';
+  src: url('./assets/fonts/sansita/Sansita-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sansita';
+  src: url('./assets/fonts/sansita/Sansita-Bold.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sansita';
+  src: url('./assets/fonts/sansita/Sansita-ExtraBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Transducer';
+  src: url('./assets/fonts/transducer_cond/transducer_condensed.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Transducer Wide';
+  src: url('./assets/fonts/transducer_wide/transducer_wide.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* Variables */
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  /* --body: #F9FAFB; */
+  --body: #FAFAF8;
+  --body-fade99: #FAFAF899;
+  --card-bg: #FDFDFC;
+  --card-bg-fade99: #FDFDFC99;
+  --card-bg-strong: #fcfcfc;
+  /* --brd-light: #e0e0e0; */
+  --brd-light: #e6e6e6;
+  --main-hl: #C6620D;
+  --main-hl-fade: #C6620D33;
+  --main-hl-fade2: #C6620D20;
+  --txt-med: #4B4B4B;
+}
+
+
+/* Reset -- https://piccalil.li/blog/a-more-modern-css-reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+#root, html, body {
+  height: 100%;
+  width: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+}
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+input, button,
+textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+textarea:not([rows]) {
+  min-height: 10em;
+}
+:target {
+  scroll-margin-block: 5ex;
+}
+
+.createButton {
+  padding: 12px 24px;
+  border: 1px solid var(--main-hl);
+  border-radius: 5px;
+  font-family: "Transducer Wide", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: white;
+  background: var(--main-hl);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease-in-out;
+}
+.createButton.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 16px 11px 14px;
+}
+.createButton:hover {
+  color: var(--main-hl);
+  background: var(--white);
+}

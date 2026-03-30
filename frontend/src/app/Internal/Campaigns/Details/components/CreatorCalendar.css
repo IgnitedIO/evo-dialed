@@ -1,0 +1,160 @@
+/* Calendar styles */
+.react-calendar {
+  min-width: 371px !important;
+  border: none !important;
+}
+
+.react-calendar__tile {
+  border-radius: 5px !important;
+  min-height: 45px !important;
+  max-width: 45px !important;
+  margin: 4px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding-top: 4px !important;
+  font-size: 14px !important;
+}
+
+.react-calendar__month-view__weekdays {
+  display: none !important;
+}
+
+.react-calendar__month-view__days__day {
+  font-family: "Geist", sans-serif !important;
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: inherit;
+}
+
+.react-calendar__navigation button:enabled {
+  color: var(--main-hl) !important;
+  background-color: var(--main-hl-fade) !important;
+}
+
+.react-calendar__navigation button:enabled:hover {
+  background: var(--main-hl-fade2) !important;
+}
+
+.react-calendar__navigation button:first-child,
+.react-calendar__navigation button:last-child {
+  border-radius: 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Custom navigation icons styling */
+.react-calendar__navigation button svg {
+  width: 20px !important;
+  height: 20px !important;
+  display: block !important;
+}
+
+.react-calendar__navigation button:enabled svg path {
+  stroke: var(--main-hl) !important;
+}
+
+.react-calendar__navigation button:disabled svg path {
+  stroke: #ccc !important;
+}
+
+.react-calendar__navigation__label {
+  margin: 0 10px !important;
+  border: none;
+  border-radius: 50px;
+}
+
+.react-calendar__navigation__label__labelText {
+  font-family: "Geist", sans-serif !important;
+}
+
+.calendar-green {
+  background: #b7f7b6 !important;
+}
+
+.calendar-green:hover {
+  background: #9ed39e !important;
+}
+
+.calendar-red {
+  background: #f7b6b6 !important;
+}
+
+.calendar-red:hover {
+  background: #d49f9f !important;
+}
+
+.calendar-grey {
+  background: #d9d9d9 !important;
+}
+
+.calendar-grey:hover {
+  background: #c0c0c0 !important;
+}
+
+.calendar-outside {
+  background: none !important;
+  color: #bbb !important;
+}
+
+/* Post circles styles */
+.post-circles-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 3px !important;
+  margin-top: 4px !important;
+  margin-bottom: -2px !important;
+  max-width: 35px !important;
+}
+
+.post-circle {
+  width: 4px !important;
+  height: 4px !important;
+  background-color: #666 !important;
+  border-radius: 50% !important;
+  flex-shrink: 0 !important;
+}
+
+.post-circle-empty {
+  width: 4px !important;
+  height: 4px !important;
+  background-color: none !important;
+  border-radius: 50% !important;
+  flex-shrink: 0 !important;
+}
+
+.post-circle-more {
+  font-size: 10px !important;
+  color: #666 !important;
+  /* font-weight: bold !important; */
+  line-height: 1 !important;
+  margin-left: 1px !important;
+}
+
+.post-circle-green {
+  background-color: #6eaf6e !important;
+}
+
+.post-circle-red {
+  background-color: #aa6969 !important;
+}
+
+.post-circle-grey {
+  background-color: #7f7f7f !important;
+}
+
+.post-circle-mult {
+  font-size: 10px !important;
+  color: #666 !important;
+  font-weight: bold !important;
+  margin-left: 0px !important;
+  line-height: 1 !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  height: 1em !important;
+}

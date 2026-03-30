@@ -1,0 +1,257 @@
+/* Integrations Module Styles */
+
+.container {
+  padding: 24px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.searchBar {
+  width: 300px;
+  padding: 8px 12px;
+  border: 1px solid var(--brd-light);
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.integrationsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.integrationCard {
+  background: var(--card-bg);
+  border: 1px solid var(--brd-light);
+  border-radius: 8px;
+  padding: 24px;
+  position: relative;
+}
+
+.integrationCard.connected {
+  border-color: #28a745;
+}
+
+.integrationCard.disconnected {
+  border-color: #dc3545;
+}
+
+.integrationHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.platformIcon {
+  width: 40px;
+  height: 40px;
+  margin-right: 16px;
+  border-radius: 8px;
+}
+
+.platformName {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.platformStatus {
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-left: auto;
+}
+
+.statusConnected {
+  background: #e8f5e9;
+  color: #28a745;
+}
+
+.statusDisconnected {
+  background: #fdecea;
+  color: #dc3545;
+}
+
+.integrationDetails {
+  margin-bottom: 20px;
+}
+
+.accountInfo {
+  font-size: 14px;
+  color: var(--txt-med);
+  margin-bottom: 8px;
+}
+
+.lastSync {
+  font-size: 13px;
+  color: #888;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.connectButton {
+  padding: 8px 16px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  flex: 1;
+}
+
+.connectButton:hover {
+  background: #0056b3;
+}
+
+.disconnectButton {
+  padding: 8px 16px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  flex: 1;
+}
+
+.disconnectButton:hover {
+  background: #c82333;
+}
+
+.errorMessage {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.successMessage {
+  color: #28a745;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.loadingOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: var(--card-bg);
+  padding: 24px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.modalHeader {
+  margin-bottom: 20px;
+}
+
+.modalTitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.modalDescription {
+  font-size: 14px;
+  color: var(--txt-med);
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formLabel {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.formInput {
+  padding: 8px 12px;
+  border: 1px solid var(--brd-light);
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.modalActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.modalButton {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  flex: 1;
+}
+
+.modalButton.primary {
+  background: #007bff;
+  color: white;
+}
+
+.modalButton.primary:hover {
+  background: #0056b3;
+}
+
+.modalButton.secondary {
+  background: #f5f5f5;
+  color: var(--txt-med);
+}
+
+.modalButton.secondary:hover {
+  background: #e8e8e8;
+} 

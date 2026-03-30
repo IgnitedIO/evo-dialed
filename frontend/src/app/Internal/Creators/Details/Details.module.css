@@ -1,0 +1,546 @@
+/* Main Component Styles */
+.header {
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headerTitle {
+	margin: 0;
+    font-family: "Transducer", sans-serif;
+    font-size: 35px;
+    font-weight: 500;
+    color: #1a1a1a;
+}
+
+.tabs {
+    padding: 6px 0 0 0;
+    border-bottom: 1px solid var(--brd-light);
+    display: flex;
+    gap: 30px;
+}
+
+.tabButton {
+    padding: 12px 0 16px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: "Transducer Wide", sans-serif;
+    border-bottom: 2px solid transparent;
+}
+
+.tabButtonActive {
+    border-bottom: 2px solid var(--main-hl);
+    color: var(--main-hl);
+    font-weight: 600;
+}
+
+.tabButtonInactive {
+    color: var(--txt-med);
+}
+
+.tabContent {
+    padding: 35px 0 25px 0;
+}
+
+/* Loading and Error States */
+.loadingContainer {
+	padding: 24px;
+	text-align: center;
+}
+
+.loadingTitle {
+	font-size: 24px;
+	color: var(--txt-med);
+}
+
+.errorContainer {
+	padding: 24px;
+}
+
+.errorTitle {
+	font-size: 24px;
+	margin-bottom: 12px;
+}
+
+.errorMessage {
+	color: #dc3545;
+}
+
+/* Search Bar Styles */
+.searchBar {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid var(--brd-light);
+    border-radius: 8px;
+    font-size: 15px;
+    background: var(--card-bg);
+    transition: border-color 0.2s ease-in-out;
+}
+
+.searchBar:focus {
+    outline: none;
+    border-color: var(--main-hl);
+}
+
+.searchBar::placeholder {
+    color: var(--txt-med);
+}
+
+/* Settings Tab Styles */
+.settingsForm {
+    max-width: 600px;
+}
+
+.formSection {
+    margin-bottom: 40px;
+}
+
+.formSectionHeader {
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.formSectionLabel {
+    font-family: "Transducer Wide", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.descriptionText {
+    padding: 20px;
+    border: 1px solid var(--brd-light);
+    border-radius: 8px;
+    color: var(--txt-med);
+    background-color: var(--card-bg-strong);
+}
+
+.descriptionText svg {
+    height: 15px;
+    width: auto;
+    margin: auto 0;
+}
+
+.actions,
+.dangerZone {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--brd-light);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.dangerZone {
+    margin-top: 25px;
+}
+
+.actionsTitle,
+.dangerZoneTitle {
+    font-family: "Transducer Wide", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--txt-med);
+    font-weight: 600;
+}
+.dangerZoneTitle {
+    color: #dc3545;
+}
+
+.inviteButton,
+.submitButton {
+    width: fit-content;
+    padding: 12px 18px;
+    background: var(--main-hl);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease-in-out;
+}
+.inviteButton,
+.submitButton:hover:not(:disabled) {
+    background: var(--main-hl-fade);
+    color: var(--main-hl);
+}
+.inviteButton {
+    margin-bottom: 15px;
+}
+
+.deleteButton {
+    width: fit-content;
+    padding: 12px 18px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    background: var(--card-bg);
+    padding: 24px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.modalTitle {
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.modalMessage {
+    margin-bottom: 40px;
+    color: var(--txt-med);
+}
+
+.modalActions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.cancelButton {
+    padding: 8px 16px;
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.error {
+    color: #dc3545;
+    margin-bottom: 16px;
+}
+
+/* Filter and Sort Popup Styles */
+.popupMenu {
+    font-family: "Geist", sans-serif;
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    padding: 8px 0;
+    min-width: 200px;
+}
+
+.popupSection {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.popupSection:last-child {
+    border-bottom: none;
+}
+
+.popupSectionTitle {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--txt-med);
+}
+
+.popupOption {
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    transition: background-color 0.2s;
+}
+
+.popupOption:hover {
+    background-color: #f5f5f5;
+}
+
+.popupOptionActive {
+    color: var(--main-hl);
+    font-weight: 500;
+}
+
+.checkbox {
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--brd-light);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkboxChecked {
+    background-color: var(--main-hl);
+    border-color: var(--main-hl);
+}
+
+.checkboxChecked::after {
+    content: "✓";
+    color: white;
+    font-size: 12px;
+}
+
+/* Filter Menu Styles */
+.filterButton {
+    padding: 12px 18px;
+    background: var(--main-hl);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+	font-weight: 500;
+    cursor: pointer;
+    whiteSpace: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dropdownContainer {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 4px;
+    background: var(--card-bg);
+    border: 1px solid var(--brd-light);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    min-width: 250px;
+    padding: 8px 0;
+}
+
+.section {
+    padding: 10px 8px 8px 8px;
+}
+.section:first-child {
+    padding-top: 0;
+}
+
+.section:not(:last-child) {
+    border-bottom: 1px solid #eee;
+}
+
+.sectionHeader {
+    font-size: 13px;
+    color: #666;
+    padding: 8px 8px 4px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filterOption {
+    width: 100%;
+    padding: 12px 15px;
+    text-align: left;
+    background: var(--card-bg);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #333;
+}
+
+.filterOption:hover {
+    background-color: #f5f5f5;
+}
+
+.filterOptionSelected {
+    color: var(--main-hl);
+    background-color: var(--main-hl-fade2) !important;
+    font-weight: 500;
+}
+
+.platformOption {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.platformIcon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.platformIcon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.dropdownArrow {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdownArrow svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s;
+}
+
+.dropdownArrowOpen svg {
+    transform: rotate(180deg);
+}
+
+/* FieldEditor Component Styles */
+.fieldEditor {
+    margin-bottom: 40px;
+}
+
+.fieldEditorLabel {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+.fieldDisplay {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border: 1px solid var(--brd-light);
+    border-radius: 8px;
+    color: var(--txt-med);
+    background-color: var(--card-bg-strong);
+}
+
+.fieldDisplayValue {
+    color: var(--txt-med);
+}
+
+.fieldEditButton {
+    color: var(--main-hl);
+    font-size: 15px;
+    font-weight: 500;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s ease-in-out;
+}
+
+.fieldEditButton:hover {
+    color: #f9c67a;
+}
+
+.fieldEditButton:disabled {
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.fieldEditContainer {
+    margin-bottom: 8px;
+}
+
+.fieldInput {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid var(--brd-light);
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+    background-color: var(--card-bg-strong);
+    color: var(--txt-med);
+    transition: border-color 0.2s ease-in-out;
+}
+
+.fieldInput:focus {
+    outline: none;
+    border-color: var(--main-hl);
+}
+
+.fieldInput.error {
+    border-color: #dc3545;
+}
+
+.fieldInput:disabled {
+    background-color: #f3f4f6;
+    cursor: not-allowed;
+}
+
+.fieldValidationError {
+    font-size: 14px;
+    color: #dc3545;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.fieldButtonContainer {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.fieldSaveButton {
+    padding: 12px 18px;
+    background: var(--main-hl);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.fieldSaveButton:hover {
+    background-color: #f9c67a;
+}
+
+.fieldSaveButton:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.fieldCancelButton {
+    padding: 12px 18px;
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.fieldCancelButton:hover {
+    background-color: #5a6268;
+}
+
+.fieldCancelButton:disabled {
+    background-color: #f3f4f6;
+    cursor: not-allowed;
+}
+  

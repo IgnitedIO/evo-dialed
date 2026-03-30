@@ -1,0 +1,98 @@
+/* Share Link Modal Styles - Matching AssignCreators pattern */
+.modalContent {
+    background: var(--card-bg);
+    padding: 30px;
+    border: 1px solid var(--brd-light);
+    border-radius: 8px;
+    width: 90vw;
+    max-width: 600px;
+}
+
+.modalTitle {
+    margin: 0 0 30px 0;
+    font-family: "Transducer Wide", sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    color: #333;
+}
+
+.addLinkForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.modalDescription {
+    margin-bottom: 8px;
+    color: var(--txt-med);
+    font-family: "Geist", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.linkDisplay {
+    font-family: "Geist", sans-serif;
+    text-align: left;
+    padding: 15px;
+    color: #333;
+    background: var(--card-bg);
+    border-radius: 5px;
+    border: 1px solid var(--brd-light);
+    font-size: 15px;
+    word-break: break-all;
+    line-height: 1.4;
+}
+
+.modalActions {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.cancelButton {
+    font-family: "Geist", sans-serif;
+    padding: 12px 18px;
+    background: var(--card-bg);
+    color: var(--txt-med);
+    border: 1px solid var(--brd-light);
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease-in-out;
+}
+
+.cancelButton:hover {
+    opacity: 0.65;
+}
+
+.submitButton {
+    font-family: "Geist", sans-serif;
+    padding: 12px 18px;
+    background: var(--main-hl);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.submitButton:hover {
+    opacity: 0.65;
+}
+.submitButton svg {
+    margin: -5px 0 -5px -5px;
+}
+.submitButton svg path {
+    stroke: white;
+}
+
+/* Override reactjs-popup styles */
+:global(.popup-overlay) {
+    background: rgba(0, 0, 0, 0.5);
+}

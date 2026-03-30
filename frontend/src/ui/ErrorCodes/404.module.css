@@ -1,0 +1,68 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-align: center;
+    overflow: hidden;
+}
+.container .content {
+    margin: -50px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+}
+.container h1 {
+    font-family: "Transducer", sans-serif;
+    font-size: 50px;
+    font-weight: 500;
+    color: #222;
+}
+.container p {
+    font-family: "Transducer Wide", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #737375;
+}
+.container a {
+    margin: 30px 0 0 0;
+    padding: 12px 18px;
+    font-family: "Transducer", sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    color: white;
+    background-color: var(--main-hl);
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+.container a:hover {
+    border: 1px solid var(--main-hl);
+    background-color: var(--card-bg-strong);
+    color: var(--main-hl);
+}
+img.bgBottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+img.bgTop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: -1;
+}

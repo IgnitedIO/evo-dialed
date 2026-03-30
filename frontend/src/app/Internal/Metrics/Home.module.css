@@ -1,0 +1,566 @@
+.container {
+    padding: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--brd-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.campaignHeader {
+    border-bottom: none;
+    padding: 0;
+}
+
+.headerTitle {
+    margin: 0;
+    font-family: 'Transducer', sans-serif;
+    font-size: 35px;
+    font-weight: 500;
+}
+.headerTitleSmall {
+    margin: 0 auto 0 0;
+    font-family: 'Transducer', sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.timePeriodSwitcher {
+    display: flex;
+    gap: 4px;
+    background: #fff;
+    padding: 2px;
+    border: 1px solid var(--brd-light);
+    border-radius: 6px;
+}
+
+.timePeriodButton {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: none;
+    background-color: transparent;
+    color: var(--txt-med);
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.timePeriodButton.selected {
+    background-color: var(--main-hl);
+    color: white;
+    font-weight: 500;
+}
+
+/* Creator Performance Styles */
+.creatorPerformanceSection {
+    margin-bottom: 32px;
+}
+
+.creatorPerformanceTitle {
+    font-size: 28px;
+    margin-bottom: 16px;
+    font-weight: 500;
+    font-family: "Transducer";
+}
+
+.creatorPerformanceList {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill, minmax(550px, 1fr)); */
+    grid-template-columns: repeat(auto-fill, minmax(750px, 1fr));
+    gap: 12px;
+}
+
+.creatorCard {
+    padding: 25px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    border: 1px solid var(--brd-light);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+}
+
+.creatorCard:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.creatorHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.creatorProfileImage {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.creatorProfilePlaceholder {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+    font-size: 12px;
+}
+
+.creatorInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.creatorName {
+    flex: 1;
+	margin: 0;
+    color: #333;
+    font-family: "Transducer Wide", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.creatorSocialInfo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 8px;
+}
+
+.creatorSocialPfp {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.creatorHandle {
+    font-size: 14px;
+    color: #666;
+}
+
+.platformIcons {
+    display: flex;
+    gap: 8px;
+}
+
+.creatorMetrics {
+    display: flex;
+    gap: 30px;
+}
+
+.noDataMessage {
+    text-align: center;
+    padding: 24px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    border: 1px solid var(--brd-light);
+    color: var(--txt-med);
+}
+
+/* Content Performance Styles */
+.contentPerformanceSection {
+    margin-bottom: 32px;
+}
+
+.contentPerformanceTitle {
+    font-size: 28px;
+    margin-bottom: 16px;
+    font-weight: 500;
+    font-family: "Transducer";
+}
+
+.contentPerformanceList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contentCard {
+    padding: 16px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    border: 1px solid var(--brd-light);
+    display: flex;
+    gap: 24px;
+}
+
+.platformIconContainer {
+    width: 110px;
+    height: 110px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+}
+
+.platformIcon {
+    font-size: 32px;
+}
+
+.contentInfo {
+    flex: 1;
+    height: fit-content;
+    margin: auto 0;
+}
+
+.contentHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.creatorInfoContainer {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.creatorProfileRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.creatorProfileRow > img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+}
+
+.platformPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    background: #f8f9fa;
+    border-radius: 16px;
+    font-size: 13px;
+    color: var(--txt-med);
+}
+
+.platformPill svg {
+    font-size: 14px;
+}
+
+.headerRight {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.creatorMiniProfileImage {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.creatorMiniProfilePlaceholder {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.platformName {
+    font-size: 14px;
+    color: var(--txt-med);
+}
+
+.creatorNameContent {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.externalLink {
+    color: #6c757d;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.externalLink:hover {
+    background-color: #f8f9fa;
+}
+
+.contentMetrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    font-size: 13px;
+}
+
+/* Remove these duplicated styles since we're using Dashboard's styles */
+.metricValue {
+    display: block;
+    font-weight: 500;
+    color: #333;
+    margin-top: 2px;
+}
+
+.metricLabel {
+    color: var(--txt-med);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.metricLabel svg {
+    width: 14px;
+    height: 14px;
+}
+
+.creatorSocial {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.creatorSocialPfp {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.creatorHandle {
+    font-size: 14px;
+    color: #666;
+}
+
+.viewAllLink {
+    padding: 0 16px;
+    height: 42px;
+    background: var(--card-bg);
+    color: var(--txt-med);
+    border: 1px solid var(--brd-light);
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+.viewAllLink:hover {
+    color: var(--main-hl) !important;
+    border-color: var(--main-hl);
+    background-color: var(--main-hl-fade2);
+}
+
+.exportButton,
+.shareLinkButton {
+    min-height: 35px;
+    padding: 7px 15px 7px 12px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    background-color: var(--main-hl);
+    border: none;
+    font-family: 'Geist', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease-in-out;
+}
+.shareLinkButton {
+    width: fit-content;
+}
+
+.exportButton:hover,
+.shareLinkButton:hover {
+    color: var(--main-hl);
+    background-color: var(--main-hl-fade2);
+}
+
+.exportButton:disabled,
+.shareLinkButton:disabled {
+    color: var(--main-hl);
+    background-color: var(--main-hl-fade2);
+    cursor: not-allowed;
+}
+
+.exportButton svg path,
+.shareLinkButton svg path {
+    stroke: #fff;
+    transition: all 0.2s ease-in-out;
+}
+
+.exportButton:hover svg path,
+.shareLinkButton:hover svg path {
+    stroke: var(--main-hl);
+}
+
+.exportButton:disabled svg path,
+.shareLinkButton:disabled svg path {
+    stroke: var(--main-hl);
+    transition: all 0.2s ease-in-out;
+}
+
+.cacheAgeIndicator {
+    color: #888;
+    font-size: 13px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.publicContainer {
+    max-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    overflow: scroll;
+}
+
+/* ViewType Toggle Buttons */
+.viewTypeToggle {
+    display: flex;
+    gap: 8px;
+}
+
+.viewTypeButton {
+    padding: 0 16px;
+    height: 42px;
+    background: var(--card-bg);
+    color: #333;
+    border: 1px solid var(--brd-light);
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease-in-out;
+}
+.viewTypeButton:hover {
+    color: var(--main-hl) !important;
+    border-color: var(--main-hl);
+    background-color: var(--main-hl-fade2);
+}
+
+.viewTypeButton.active {
+    background-color: var(--main-hl);
+    color: white;
+    border-color: var(--main-hl);
+}
+
+.viewTypeButton.active:hover {
+    background-color: var(--main-hl);
+    color: white !important;
+    border-color: var(--main-hl);
+}
+
+.loadMoreButton {
+    padding: 12px 16px !important;
+}
+
+
+/* Responsiveness */
+@media screen and (max-width: 900px) {
+    .cacheAgeIndicator {
+        display: none !important;
+    }
+}
+@media screen and (max-width: 768px) {
+    .cacheAgeIndicator {
+        display: none !important;
+    }
+    .campaignHeader > div > div:nth-child(1) > div:nth-child(3) {
+        display: none !important;
+    }
+}
+@media screen and (max-width: 675px) {
+    .campaignHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .campaignHeader > div {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .campaignHeader > div > div:nth-child(1) {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        justify-content: flex-end;
+        flex: 1 1;
+    }
+    .campaignHeader > div > div:nth-child(1) > div:nth-child(1) {
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex: 1 1;
+        width: 100%;
+    }
+    .campaignHeader > div > div:nth-child(1) > div:nth-child(1) > button {
+        flex: 1 1;
+        justify-content: space-between;
+    }
+}
+@media screen and (max-width: 500px) {
+    .campaignHeader > div {
+        gap: 8px;
+    }
+    .campaignHeader > div > div:nth-child(1) {
+        gap: 8px;
+    }
+}
+@media screen and (max-width: 475px) {
+    .campaignHeader > div {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .campaignHeader > div > div:nth-child(1) {
+        gap: 15px;
+    }
+    .campaignHeader > div > div:nth-child(2) {
+        width: 100%;
+    }
+    .campaignHeader > div > div:nth-child(2) > button {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        height: 42px;
+    }
+}

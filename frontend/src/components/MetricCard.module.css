@@ -1,0 +1,80 @@
+.card {
+  padding: 16px 20px;
+  /* background: var(--card-bg); */
+  background: var(--card-bg);
+  border-radius: 8px;
+  border: 1px solid var(--brd-light);
+  min-width: 200px;
+}
+
+.largeCard {
+  min-width: 200px;
+  padding: 50px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--brd-light);
+  background: var(--card-bg-strong);
+}
+
+.largeCard .title {
+  margin: 0 auto;
+  font-family: "Transducer Wide", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #707070;
+}
+.largeCard .value {
+  font-family: "Transducer", sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  color: var(--txt-med);
+  margin: 8px 0;
+  font-weight: normal;
+}
+
+.title > svg {
+  height: 18px;
+  width: auto;
+  margin: auto 0;
+  color: var(--main-hl);
+}
+
+.valueRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.value {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.change {
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.changePositive {
+  color: #28a745;
+}
+
+.changeNegative {
+  color: #dc3545;
+}
+
+.changeNeutral {
+  color: var(--txt-med);
+} 

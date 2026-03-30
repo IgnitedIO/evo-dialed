@@ -1,0 +1,339 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.headerTitle {
+  margin: 0;
+  font-family: "Transducer", sans-serif;
+  font-size: 35px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 24px;
+}
+
+.sectionContainer {
+  background: var(--card-bg);
+  border-radius: 8px;
+  border: 1px solid var(--brd-light);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.sectionTitle {
+  font-family: "Transducer Wide", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.formSection {
+  margin-bottom: 24px;
+}
+
+.formSection:last-child {
+  margin-bottom: 0;
+}
+
+.formSectionHeader {
+  margin-bottom: 8px;
+}
+
+.formSectionLabel {
+  font-family: "Transducer Wide", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.descriptionText {
+  font-size: 15px;
+  color: #1a1a1a;
+  line-height: 1.5;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #1a1a1a;
+  background: var(--card-bg);
+}
+
+.input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.profileImageSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.profileImage {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.profileImage:hover {
+  opacity: 0.65;
+}
+
+.fileInput {
+  display: none;
+}
+
+.fileInputLabel {
+	padding: 12px 18px;
+	background: var(--main-hl);
+	color: white;
+	border: none;
+	border-radius: 8px;
+	font-size: 15px;
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+.formActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  justify-content: space-between;
+}
+
+.submitButton {
+	padding: 12px 18px;
+	background: var(--main-hl);
+	color: white;
+	border: none;
+	border-radius: 8px;
+	font-size: 15px;
+	cursor: pointer;
+	white-space: nowrap;
+	transition: all ease-in-out 0.2s;
+}
+
+.submitButton:hover {
+	opacity: 0.65;
+}
+
+.submitButton:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.cancelButton {
+	padding: 12px 18px;
+	background: var(--card-bg);
+	color: var(--txt-med);
+	border: 1px solid #d1d5db;
+	border-radius: 8px;
+	font-size: 15px;
+	cursor: pointer;
+	white-space: nowrap;
+	transition: all ease-in-out 0.2s;
+}
+
+.cancelButton:hover {
+	opacity: 0.65;
+}
+
+.cancelButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.editButton {
+	padding: 12px 18px;
+	background: var(--main-hl);
+	color: white;
+	border: none;
+	border-radius: 8px;
+	font-size: 15px;
+	cursor: pointer;
+	white-space: nowrap;
+	transition: all ease-in-out 0.2s;
+}
+
+.editButton:hover {
+  opacity: 0.65;
+}
+
+.dangerZone {
+  margin-top: 32px;
+}
+
+.dangerZoneTitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+.deleteButton {
+  padding: 12px 18px;
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all ease-in-out 0.2s;
+}
+
+.deleteButton:hover {
+  opacity: 0.65;
+}
+
+.error {
+  color: #dc2626;
+  background: #fee2e2;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.detailItem {
+  background: var(--card-bg);
+  border: 1px solid var(--brd-light);
+  border-radius: 8px;
+  padding: 12px 18px;
+  margin-bottom: 16px;
+}
+
+.detailItem:last-child {
+  margin-bottom: 0;
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.modalTitle {
+  font-family: "Transducer Wide", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.modalCloseButton {
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  min-height: 40px;
+  margin: -5px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.modalCloseButton:hover {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.modalCloseButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Success Message */
+.success {
+  color: #059669;
+  background: #d1fae5;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+/* Consent Checkbox Styles */
+.consentCheckbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 18px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+  background: var(--card-bg);
+  cursor: pointer;
+}
+
+.consentCheckbox:hover {
+  border-color: #9ca3af;
+  background: #f9fafb;
+}
+
+.consentCheckboxActive {
+  border-color: var(--main-hl);
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.consentCheckboxText {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  user-select: none;
+}
+
+.consentCheckboxActive .consentCheckboxText {
+  color: #1a1a1a;
+}
+
+
+/* Responsivess */
+@media screen and (max-width: 690px) {
+  .container {
+    padding: 20px 0;
+  }
+}

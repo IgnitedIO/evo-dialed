@@ -1,0 +1,448 @@
+/* Modal Backdrop */
+.modalBackdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.6);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1000;
+	padding: 20px;
+}
+
+/* Modal Content */
+.modalContent {
+	background: var(--card-bg);
+	border-radius: 12px;
+	max-width: 800px;
+	width: 100%;
+	max-height: 90vh;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal Header */
+.modalHeader {
+	padding: 20px 24px;
+	border-bottom: 1px solid var(--brd-light);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.modalTitle {
+    margin: 0;
+    font-family: "Transducer", sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: #333;
+}
+
+.closeButton {
+	background: none;
+	border: none;
+	font-size: 30px;
+	font-weight: 300;
+	line-height: 1;
+	color: #666;
+	cursor: pointer;
+	padding: 0;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid var(--brd-light);
+	border-radius: 4px;
+	transition: background-color 0.2s;
+}
+
+.closeButton:hover {
+	background-color: #f0f0f0;
+}
+
+/* Modal Body */
+.modalBody {
+	padding: 24px;
+	overflow-y: auto;
+	flex: 1;
+}
+
+/* Loading */
+.loadingContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 48px;
+}
+
+/* Error Message */
+.errorMessage {
+	color: #dc3545;
+	background: #f8d7da;
+	padding: 12px 16px;
+	border-radius: 8px;
+	margin-bottom: 16px;
+}
+
+/* Media Container */
+.mediaContainer {
+	margin-bottom: 24px;
+	border-radius: 8px;
+	overflow: hidden;
+	background: #f5f5f5;
+}
+
+.mediaContent {
+	width: 100%;
+	max-height: 400px;
+	object-fit: contain;
+	display: block;
+}
+
+/* Info Section */
+.infoSection {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.infoRow {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+}
+
+.infoCard {
+	background: #fff;
+    border: 1px solid var(--brd-light);
+    border-radius: 8px;
+    min-width: 200px;
+    padding: 16px 20px;
+}
+.infoCard.row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+.infoCardLabel {
+	align-items: center;
+    color: var(--txt-med);
+    display: flex;
+    font-size: 15px;
+    font-weight: 400;
+    gap: 6px;
+    margin: 8px 0;
+}
+
+.infoCard span {
+	width: fit-content;
+	display: flex;
+	gap: 6px;
+}
+.campaignName {
+	font-size: 15px;
+	font-weight: 500;
+	font-family: "Transducer Wide", sans-serif;
+}
+.infoCard span svg {
+	width: 18px;
+	height: 18px;
+	margin: auto 0;
+	color: var(--main-hl);
+}
+
+.infoLabel {
+	font-weight: 500;
+	color: #666;
+	min-width: 120px;
+	flex-shrink: 0;
+}
+
+.infoRow span,
+.caption,
+.notes,
+.feedbackNotes {
+	margin: 0;
+    font-family: Geist, sans-serif;
+    font-size: 16px;
+	line-height: 1.5;
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.notes {
+	background: var(--card-bg-strong);
+	padding: 12px;
+	border: 1px solid var(--brd-light);
+	border-radius: 6px;
+}
+
+.feedbackNotes {
+	background: #fff3cd;
+	padding: 12px;
+	border-radius: 6px;
+	border-left: 3px solid #ffc107;
+}
+
+/* Creator Info */
+.creatorInfo {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+    font-family: "Transducer Wide", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.creatorPfp {
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+/* Status Badge */
+.statusBadge {
+	display: inline-block;
+	padding: 6px 12px;
+	border-radius: 20px;
+	font-size: 13px;
+	font-family: "Transducer Wide", sans-serif;
+}
+
+.statusBadgePending {
+	background: #fff3cd;
+	color: #856404;
+}
+
+.statusBadgeApproved {
+	background: #d4edda;
+	color: #155724;
+}
+
+.statusBadgeRejected {
+	background: #f8d7da;
+	color: #721c24;
+}
+
+.resubmitBadge {
+	margin-right: 8px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+	padding: 6px 12px;
+	border-radius: 20px;
+    font-family: "Transducer Wide", sans-serif;
+	font-size: 13px;
+	font-weight: 500;
+    background: #ede7f6;
+    color: #5e35b1;
+}
+.resubmitBadge svg {
+    height: 15px;
+    width: 15px;
+    margin: auto 0;
+}
+
+/* Platform Badge */
+.platformBadge {
+	display: inline-block;
+	/* padding: 6px 12px;
+	border-radius: 50px; */
+	font-size: 15px;
+	font-weight: 400;
+	/* background: #e3f2fd;
+	color: #1976d2; */
+}
+
+/* Actions Section */
+.actionsSection {
+	margin-top: 24px;
+	padding-top: 24px;
+	border-top: 1px solid var(--brd-light);
+	display: flex;
+	gap: 12px;
+}
+
+.approveButton,
+.rejectButton {
+	flex: 1;
+	height: 45px;
+	padding: 12px 24px;
+	border: none;
+	border-radius: 6px;
+	font-size: 15px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all 0.2s;
+}
+
+.approveButton {
+	background: #28a745;
+	color: white;
+}
+
+.approveButton:hover:not(:disabled) {
+	background: #218838;
+}
+
+.rejectButton {
+	background: #dc3545;
+	color: white;
+}
+
+.rejectButton:hover:not(:disabled) {
+	background: #c82333;
+}
+
+.approveButton:disabled,
+.rejectButton:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+/* Reject Form */
+.rejectForm {
+	width: 100%;
+}
+
+.rejectLabel {
+	display: block;
+	font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.rejectTextarea {
+	width: 100%;
+	height: 200px;
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	font-family: inherit;
+	font-size: 15px;
+	resize: none;
+	transition: border-color 0.2s;
+}
+
+.rejectTextarea:focus {
+	outline: none;
+	border-color: #dc3545;
+}
+
+.rejectFormActions {
+	margin-top: 12px;
+	display: flex;
+	gap: 12px;
+}
+
+.dropdownArrow {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdownArrow svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s;
+}
+
+.dropdownArrowOpen svg {
+    transform: rotate(180deg);
+}
+
+.cancelButton,
+.submitApproveButton,
+.submitRejectButton {
+	flex: 1;
+	padding: 12px 24px;
+	border: none;
+	border-radius: 8px;
+	font-size: 15px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.cancelButton {
+	background: var(--card-bg);
+    border: 1px solid var(--brd-light);
+	color: #000;
+}
+
+.cancelButton:hover:not(:disabled) {
+	opacity: 0.6;
+}
+
+.submitApproveButton {
+	background: #28a745;
+	color: white;
+}
+.submitApproveButton:hover:not(:disabled) {
+	background: #218838;
+}
+
+.submitRejectButton {
+	background: #dc3545;
+	color: white;
+}
+
+.submitRejectButton:hover:not(:disabled) {
+	background: #c82333;
+}
+
+.cancelButton:disabled,
+.submitApproveButton:disabled,
+.submitRejectButton:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+
+.modalLeft {
+	flex: 1;
+}
+.modalCenter {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.modalCenter .creatorInfo span {
+	font-size: 18px !important;
+}
+.modalRight {
+	flex: 1;
+	text-align: right;
+	display: flex;
+	flex-direction: row-reverse;
+	gap: 15px;
+}
+.modalRight .approveButton,
+.modalRight .rejectButton {
+	width: 45px;
+	height: 45px;
+	display: flex;
+	padding: 0;
+	flex: unset;
+	align-items: center;
+	justify-content: center;
+	border-radius: 4px;
+	transition: background-color 0.2s;
+}
+.modalRight .approveButton svg,
+.modalRight .rejectButton svg {
+	width: 23px;
+	height: 23px;
+}

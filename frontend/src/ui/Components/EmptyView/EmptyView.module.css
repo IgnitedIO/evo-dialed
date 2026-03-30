@@ -1,0 +1,21 @@
+.emptyView {
+    text-align: center;
+    padding: 65px 48px;
+    color: var(--txt-med);
+    background: var(--card-bg-fade99);
+    border-radius: 8px;
+    border: 1px solid var(--brd-light);
+}
+
+.emptyViewIcon {
+    height: 50px;
+    width: 50px;
+    margin: 0 auto 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 8px;
+    background: #EEEEEA;
+    color: #949492;
+}

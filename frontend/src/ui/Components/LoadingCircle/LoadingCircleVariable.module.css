@@ -1,0 +1,21 @@
+.loading_circle {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.loading_circle_inner {
+    width: 100%;
+    height: 100%;
+	border: 3px solid transparent;
+	border-top: 3px solid var(--main-hl) !important;
+	border-radius: 50%;
+	animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
