@@ -49,6 +49,7 @@ import {
   InternalCampaignDetails,
   InternalCampaignCreate,
   InternalCreativeApprovalHome,
+  InternalMissionControlHome,
 } from "./app";
 
 // Rule-based Router
@@ -156,6 +157,7 @@ export default function App() {
               <Route exact path="/team/campaigns/new" element={<AppLayout title="Create Campaign"><InternalCampaignCreate /></AppLayout>} />
               <Route exact path="/team/creators" element={<AppLayout title="Creators"><InternalCreatorsHome /></AppLayout>} />
               <Route exact path="/team/creators/:creatorId/details" element={<AppLayout title="Creator Details"><InternalCreatorDetails /></AppLayout>} />
+              <Route exact path="/team/mission-control" element={<AppLayout title="Mission Control"><InternalMissionControlHome /></AppLayout>} />
               <Route exact path="/team/creative-approval" element={<AppLayout title="Creative Approval"><InternalCreativeApprovalHome /></AppLayout>} />
               <Route exact path="/team/creators/invite" element={<AppLayout title="Invite Creator"><InternalCreatorInvite /></AppLayout>} />
               <Route exact path="/team/creators/add" element={<AppLayout title="Add Creator"><InternalCreatorInviteV2 /></AppLayout>} />

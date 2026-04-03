@@ -28,6 +28,9 @@ export { InternalCampaignsHome } from "./Internal/Campaigns/Home.jsx";
 export { InternalCampaignDetails } from "./Internal/Campaigns/Details/Details.jsx";
 export { InternalCampaignCreate } from "./Internal/Campaigns/Create.jsx";
 
+/* [V2.0] Mission Control */
+export { InternalMissionControlHome } from "./Internal/MissionControl/Home.jsx";
+
 /* [V1.1] Creative Approval */
 export { CreativeApprovalController as InternalCreativeApprovalHome } from "./Internal/CreativeApproval/Controller.jsx";
 export { CreatorCreativesHome } from "./Clients/CreativeApproval/Home.jsx";

@@ -57,6 +57,7 @@ services:
       PORT: ${API_V1_PORT}
       FRONTEND_URL: ${FRONTEND_URL}
       FRONTEND_URL_PREFIX: ${FRONTEND_URL_PREFIX}
+      HASH_ITERATIONS: ${HASH_ITERATIONS}
     ports:
       - ${API_V1_PORT}:${API_V1_PORT}
     networks:

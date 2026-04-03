@@ -300,7 +300,7 @@ async function createCampaign(req, res) {
 		}
 
 		// Validate status if provided
-		const validStatuses = ['active', 'archive', 'complete', 'draft'];
+		const validStatuses = ['active', 'archive', 'complete', 'draft', 'onboarding', 'renewal', 'renewed', 'relaunch', 'paused'];
 		if (req.body.status && !validStatuses.includes(req.body.status)) {
 			return res.status(HttpStatus.FAILED_STATUS).send("Invalid status");
 		}

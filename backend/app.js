@@ -85,6 +85,7 @@ const settingsRoute = require('./routes/settings/routes.js');
 const webhooksRoute = require('./routes/webhooks/routes.js');
 const internalCreativeApprovalRoute = require('./routes/internal/creative_approval/routes.js');
 const creatorsCreativeApprovalRoute = require('./routes/creators/creative_approval/routes.js');
+const internalMissionControlRoute = require('./routes/internal/mission_control/routes.js');
 
 // Routes
 const route_prefix = (process.env.NODE_ENV === "development") ? "/api" : "";
@@ -104,6 +105,9 @@ app.use(route_prefix+'/webhooks/', webhooksRoute);
 // V1.1 Routes - Creative Approval
 app.use(route_prefix+'/internal/creative-approval/', internalCreativeApprovalRoute);
 app.use(route_prefix+'/creators/creative-approval/', creatorsCreativeApprovalRoute);
+
+// V2.0 Routes - Mission Control
+app.use(route_prefix+'/internal/mission-control/', internalMissionControlRoute);
 
 // Catch unhandled requests
 app.all('/*', (_, res) => { res.sendStatus(404); });
@@ -130,6 +134,9 @@ const { initializeMetricsSlackSystem, worker: metricsSlackWorker } = require('./
 // BullMQ Creative Approval Notifications Initialization
 const { initializeCreativeApprovalNotifs, worker: creativeApprovalNotifsWorker } = require('./tasks/creativeapproval_notifs/index.js');
 
+// [V2.0] BullMQ Mission Control Auto-Transitions Initialization
+const { initializeMCTransitions, worker: mcTransitionsWorker } = require('./tasks/mc_transitions/index.js');
+
 // Start BullMQ metrics scraping scheduler
 scheduleMetricsScraping();
 
@@ -139,6 +146,9 @@ initializeMetricsSlackSystem();
 // [V1.1] Creative Approval - Start BullMQ creative approval notifications system
 initializeCreativeApprovalNotifs();
 
+// [V2.0] Mission Control - Start BullMQ auto-transitions system
+initializeMCTransitions();
+
 // Handle graceful shutdown for BullMQ workers
 process.on('SIGTERM', async () => {
     console.log('SIGTERM received. Closing server...');
@@ -146,6 +156,7 @@ process.on('SIGTERM', async () => {
     await tiktokWorker.close();
     await metricsSlackWorker.close();
     await creativeApprovalNotifsWorker.close();
+    await mcTransitionsWorker.close();
     server.close(() => {
         console.log('Server closed');
         process.exit(0);

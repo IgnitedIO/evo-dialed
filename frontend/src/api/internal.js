@@ -649,3 +649,47 @@ export const removeCreativeDirector = async (campaignId) => {
     }
   );
 };
+
+// -------------------
+// MISSION CONTROL API FUNCTIONS
+// -------------------
+
+export const getMissionControlBoard = async () => {
+  return await http.get("/internal/mission-control/board", { withCredentials: true });
+};
+
+export const updateCampaignBoardStatus = async (campaignId, status) => {
+  return await http.patch(`/internal/mission-control/${campaignId}/status`, { status }, { withCredentials: true });
+};
+
+export const pauseMCCampaign = async (campaignId) => {
+  return await http.post(`/internal/mission-control/${campaignId}/pause`, {}, { withCredentials: true });
+};
+
+export const launchMCCampaign = async (campaignId) => {
+  return await http.post(`/internal/mission-control/${campaignId}/launch`, {}, { withCredentials: true });
+};
+
+export const getMCComments = async (campaignId) => {
+  return await http.get(`/internal/mission-control/${campaignId}/comments`, { withCredentials: true });
+};
+
+export const addMCComment = async (campaignId, content, mentions) => {
+  return await http.post(`/internal/mission-control/${campaignId}/comments`, { content, mentions }, { withCredentials: true });
+};
+
+export const deleteMCComment = async (campaignId, commentId) => {
+  return await http.delete(`/internal/mission-control/${campaignId}/comments/${commentId}`, { withCredentials: true });
+};
+
+export const getMCChecklist = async (campaignId) => {
+  return await http.get(`/internal/mission-control/${campaignId}/checklist`, { withCredentials: true });
+};
+
+export const updateMCChecklistItem = async (campaignId, itemId, isComplete) => {
+  return await http.patch(`/internal/mission-control/${campaignId}/checklist/${itemId}`, { is_complete: isComplete }, { withCredentials: true });
+};
+
+export const getMCTeamMembers = async () => {
+  return await http.get("/internal/mission-control/team-members", { withCredentials: true });
+};

@@ -42,10 +42,11 @@ CREATE TABLE Campaigns (
 	`created_ts` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`supports_ig` tinyint(1) NOT NULL DEFAULT 0,
 	`supports_tt` tinyint(1) NOT NULL DEFAULT 0,
-	`status` enum('active', 'archive', 'complete', 'draft') NOT NULL DEFAULT 'active',
+	`status` enum('active', 'archive', 'complete', 'draft', 'onboarding', 'renewal', 'renewed', 'relaunch', 'paused') NOT NULL DEFAULT 'active',
 	`start_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`end_date` TIMESTAMP NOT NULL,
 	`budget` decimal(10, 2) NOT NULL DEFAULT 0,
+	`target_views` bigint DEFAULT NULL,
 	`share_link` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
 	`assigned_cd` int DEFAULT NULL,
 	PRIMARY KEY (`id`),
@@ -268,3 +269,63 @@ CREATE TABLE CrvApprv_Creator_Creatives (
 	KEY `idx_created_ts` (`created_ts`),
 	KEY `idx_platform` (`platform`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+
+-- [V2.0] Mission Control Board
+
+DROP TABLE IF EXISTS `MC_Comments`;
+CREATE TABLE MC_Comments (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`campaign_id` int NOT NULL,
+	`user_id` int NOT NULL,
+	`content` TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+	`mentions` JSON,
+	`is_system` tinyint(1) NOT NULL DEFAULT 0,
+	`created_ts` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (`id`),
+	FOREIGN KEY (`campaign_id`) REFERENCES Campaigns(`id`) ON DELETE CASCADE,
+	FOREIGN KEY (`user_id`) REFERENCES Users(`id`) ON DELETE CASCADE,
+	KEY `idx_campaign_ts` (`campaign_id`, `created_ts`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+DROP TABLE IF EXISTS `MC_Activity_Log`;
+CREATE TABLE MC_Activity_Log (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`campaign_id` int NOT NULL,
+	`user_id` int DEFAULT NULL,
+	`action` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+	`from_status` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+	`to_status` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+	`details` JSON DEFAULT NULL,
+	`is_automated` tinyint(1) NOT NULL DEFAULT 0,
+	`created_ts` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (`id`),
+	FOREIGN KEY (`campaign_id`) REFERENCES Campaigns(`id`) ON DELETE CASCADE,
+	KEY `idx_campaign_ts` (`campaign_id`, `created_ts`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+DROP TABLE IF EXISTS `MC_Renewal_Checklist`;
+CREATE TABLE MC_Renewal_Checklist (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`campaign_id` int NOT NULL,
+	`item_key` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+	`label` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+	`is_complete` tinyint(1) NOT NULL DEFAULT 0,
+	`completed_by` int DEFAULT NULL,
+	`completed_ts` TIMESTAMP NULL,
+	`created_ts` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (`id`),
+	UNIQUE KEY (`campaign_id`, `item_key`),
+	FOREIGN KEY (`campaign_id`) REFERENCES Campaigns(`id`) ON DELETE CASCADE,
+	FOREIGN KEY (`completed_by`) REFERENCES Users(`id`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+DROP TABLE IF EXISTS `MC_Board_Config`;
+CREATE TABLE MC_Board_Config (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`config_key` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+	`config_value` JSON NOT NULL,
+	`updated_ts` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	PRIMARY KEY (`id`),
+	UNIQUE KEY (`config_key`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
