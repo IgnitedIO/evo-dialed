@@ -488,6 +488,22 @@ async function db_deleteComment(commentId, userId) {
     }
 }
 
+async function db_editComment(commentId, userId, content) {
+    try {
+        const updated = await knex('MC_Comments')
+            .where('id', commentId)
+            .where('user_id', userId)
+            .where('is_system', 0)
+            .update({ content, updated_ts: knex.fn.now() });
+
+        return [updated > 0, updated > 0 ? 'Updated' : 'Not found or not authorized'];
+
+    } catch (err) {
+        console.error("db_editComment error:", err);
+        return [false, 'Database error'];
+    }
+}
+
 
 // -------------------
 // CHECKLIST Functions
@@ -649,6 +665,7 @@ module.exports = {
     db_getComments,
     db_addComment,
     db_deleteComment,
+    db_editComment,
     db_getChecklist,
     db_toggleChecklistItem,
     db_createDefaultChecklist,

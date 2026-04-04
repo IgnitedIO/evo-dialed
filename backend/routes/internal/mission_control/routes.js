@@ -14,6 +14,7 @@ const {
     getComments,
     addComment,
     deleteComment,
+    editComment,
     getChecklist,
     updateChecklistItem,
     getBoardConfig,
@@ -37,6 +38,7 @@ missionControlRouter.post('/:campaign_id/launch', launchCampaign);
 missionControlRouter.get('/:campaign_id/comments', getComments);
 missionControlRouter.post('/:campaign_id/comments', addComment);
 missionControlRouter.delete('/:campaign_id/comments/:comment_id', deleteComment);
+missionControlRouter.patch('/:campaign_id/comments/:comment_id', editComment);
 
 // Renewal checklist
 missionControlRouter.get('/:campaign_id/checklist', getChecklist);

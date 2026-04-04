@@ -10,6 +10,7 @@ const {
     db_getComments,
     db_addComment,
     db_deleteComment,
+    db_editComment,
     db_getChecklist,
     db_toggleChecklistItem,
     db_getConfig,
@@ -118,6 +119,21 @@ async function deleteComment(req, res) {
     }
 }
 
+async function editComment(req, res) {
+    try {
+        const { comment_id } = req.params;
+        const { content } = req.body;
+        if (!content) return res.status(HttpStatus.BAD_REQUEST_STATUS).send('Content is required');
+
+        const [ok, msg] = await db_editComment(parseInt(comment_id), req.user.id, content);
+        if (!ok) return res.status(HttpStatus.FAILED_STATUS).send(msg);
+        return res.sendStatus(HttpStatus.SUCCESS_STATUS);
+    } catch (err) {
+        console.error("editComment error:", err);
+        return res.sendStatus(HttpStatus.MISC_ERROR_STATUS);
+    }
+}
+
 // -------------------
 // Checklist
 // -------------------
@@ -203,6 +219,7 @@ module.exports = {
     getComments,
     addComment,
     deleteComment,
+    editComment,
     getChecklist,
     updateChecklistItem,
     getBoardConfig,
