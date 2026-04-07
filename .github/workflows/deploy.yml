@@ -1,0 +1,24 @@
+name: Deploy to Production
+
+on:
+  workflow_dispatch: # Manual trigger from GitHub UI
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ${{ secrets.PROD_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd ${{ secrets.PROD_PATH }}
+            git fetch origin main
+            git reset --hard origin/main
+            cd scripts
+            ./build_prod.sh

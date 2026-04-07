@@ -63,28 +63,11 @@ async function db_getBoardData() {
             .select('campaign_id')
             .count('npc_id as submitted');
 
-        // 4. Get latest metrics per campaign (total views, likes, etc.)
-        const latestMetrics = await knex('Campaign_Submissions as cs')
-            .join('Campaign_Submissions_Metrics as csm', function () {
-                this.on('csm.npc_id', '=', 'cs.npc_id');
-            })
-            .join(
-                knex('Campaign_Submissions_Metrics')
-                    .select('npc_id')
-                    .max('id as max_id')
-                    .groupBy('npc_id')
-                    .as('latest'),
-                'csm.id', 'latest.max_id'
-            )
-            .whereIn('cs.campaign_id', campaignIds)
-            .groupBy('cs.campaign_id')
-            .select(
-                'cs.campaign_id',
-                knex.raw('SUM(csm.views) as total_views'),
-                knex.raw('SUM(csm.likes) as total_likes'),
-                knex.raw('SUM(csm.comments) as total_comments'),
-                knex.raw('SUM(csm.shares) as total_shares')
-            );
+        // The historical metrics table is large in production, and the full
+        // "latest metric per submission" aggregate can block the whole board load.
+        // Return the board immediately and keep metrics fields present with
+        // zero defaults until a lighter aggregate path is added.
+        const latestMetrics = [];
 
         // 5. Get creator counts per campaign
         const creatorCounts = await knex('Creator_Assignments')

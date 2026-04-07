@@ -1,12 +1,10 @@
 // Dependencies
 import { useEffect, useState, useMemo } from "react";
-import { DragDropContext } from "@hello-pangea/dnd";
 
 // API Imports
-import { getMissionControlBoard, updateCampaignBoardStatus } from "../../../api/internal";
+import { getMissionControlBoard } from "../../../api/internal";
 
 // Component Imports
-import BoardStage from "./components/BoardStage";
 import GridView from "./components/GridView";
 import CampaignPanel from "./components/CampaignPanel";
 import LoadingCircleScreen from "../../../ui/Components/LoadingCircle/LoadingCircleScreen";
@@ -16,21 +14,11 @@ import styles from "./MissionControl.module.css";
 
 const STAGE_ORDER = ["onboarding", "active", "renewal", "renewed", "relaunch"];
 
-const STAGE_LABELS = {
-  onboarding: "Onboarding",
-  active: "Active",
-  renewal: "Up for Renewal",
-  renewed: "Renewed",
-  relaunch: "Relaunch",
-};
-
 export const InternalMissionControlHome = () => {
   const [boardData, setBoardData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedCampaign, setSelectedCampaign] = useState(null);
-  const [toast, setToast] = useState(null);
-  const [viewMode, setViewMode] = useState(() => localStorage.getItem("mc_view_mode") || "board");
 
   // Filter states
   const [search, setSearch] = useState("");
@@ -49,14 +37,7 @@ export const InternalMissionControlHome = () => {
     } catch { return {}; }
   });
 
-  // Custom card ordering per stage (persisted in localStorage)
-  const [cardOrder, setCardOrder] = useState(() => {
-    try {
-      const saved = localStorage.getItem("mc_card_order");
-      return saved ? JSON.parse(saved) : {};
-    } catch { return {}; }
-  });
-
+  
   const loadBoard = async () => {
     try {
       const resp = await getMissionControlBoard();
@@ -76,12 +57,6 @@ export const InternalMissionControlHome = () => {
   useEffect(() => {
     loadBoard();
   }, []);
-
-  // Persist card order to localStorage
-  useEffect(() => {
-    try { localStorage.setItem("mc_card_order", JSON.stringify(cardOrder)); }
-    catch {}
-  }, [cardOrder]);
 
   // Persist last-viewed to localStorage
   useEffect(() => {
@@ -152,31 +127,15 @@ export const InternalMissionControlHome = () => {
     const result = {};
     STAGE_ORDER.forEach((key) => {
       let campaigns = filterCampaigns(boardData[key] || []);
-
-      // Apply sort if set, otherwise use custom card ordering
       if (sortBy) {
         campaigns = sortCampaigns(campaigns);
-      } else if (cardOrder[key]) {
-        const orderMap = {};
-        cardOrder[key].forEach((id, idx) => { orderMap[id] = idx; });
-        campaigns = [...campaigns].sort((a, b) => {
-          const aIdx = orderMap[a.id] !== undefined ? orderMap[a.id] : 9999;
-          const bIdx = orderMap[b.id] !== undefined ? orderMap[b.id] : 9999;
-          return aIdx - bIdx;
-        });
       }
-
       result[key] = campaigns;
     });
     return result;
-  }, [boardData, search, filterCD, filterProgress, filterPlatform, filterPostPct, filterCreators, sortBy, cardOrder]);
+  }, [boardData, search, filterCD, filterProgress, filterPlatform, filterPostPct, filterCreators, sortBy]);
 
   const hasFilters = search || filterCD || filterProgress || filterPlatform || filterPostPct || filterCreators || sortBy;
-
-  const showToast = (message, type = "error") => {
-    setToast({ message, type });
-    setTimeout(() => setToast(null), 4000);
-  };
 
   const clearFilters = () => {
     setSearch("");
@@ -186,50 +145,6 @@ export const InternalMissionControlHome = () => {
     setFilterPostPct("");
     setFilterCreators("");
     setSortBy("");
-  };
-
-  // DnD handler
-  const handleDragEnd = async (result) => {
-    const { source, destination, draggableId } = result;
-    if (!destination) return;
-
-    const sourceStage = source.droppableId;
-    const destStage = destination.droppableId;
-    const campaignId = parseInt(draggableId.replace("campaign-", ""));
-
-    if (sourceStage === destStage) {
-      // Reorder within same column
-      const stageData = filteredBoard[sourceStage];
-      const ids = stageData.map((c) => c.id);
-      const [movedId] = ids.splice(source.index, 1);
-      ids.splice(destination.index, 0, movedId);
-      setCardOrder((prev) => ({ ...prev, [sourceStage]: ids }));
-      return;
-    }
-
-    const campaign = (boardData[sourceStage] || []).find((c) => c.id === campaignId);
-    if (!campaign) return;
-
-    // Optimistic update — save snapshot for revert
-    const snapshot = { ...boardData };
-    const updatedCampaign = { ...campaign, status: destStage };
-
-    setBoardData((prev) => {
-      const newData = { ...prev };
-      newData[sourceStage] = (prev[sourceStage] || []).filter((c) => c.id !== campaignId);
-      newData[destStage] = [...(prev[destStage] || [])];
-      newData[destStage].splice(destination.index, 0, updatedCampaign);
-      return newData;
-    });
-
-    // Call API
-    const resp = await updateCampaignBoardStatus(campaignId, destStage);
-    if (resp.status !== 200) {
-      setBoardData(snapshot);
-      showToast("Failed to move campaign. Change reverted.");
-    } else {
-      showToast(`Moved to ${STAGE_LABELS[destStage] || destStage}`, "success");
-    }
   };
 
   const handleCardClick = (campaign) => {
@@ -282,26 +197,6 @@ export const InternalMissionControlHome = () => {
             {hasFilters ? `${filteredTotal} of ` : ""}{totalCampaigns} campaign{totalCampaigns !== 1 ? "s" : ""}
             {pausedCount > 0 && ` · ${pausedCount} paused`}
           </span>
-          <div className={styles.viewToggle}>
-            <button
-              className={`${styles.viewToggleBtn} ${viewMode === "board" ? styles.viewToggleActive : ""}`}
-              onClick={() => { setViewMode("board"); localStorage.setItem("mc_view_mode", "board"); }}
-              title="Board view"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="3" y="3" width="5" height="18" rx="1"/><rect x="10" y="3" width="5" height="18" rx="1"/><rect x="17" y="3" width="5" height="18" rx="1"/>
-              </svg>
-            </button>
-            <button
-              className={`${styles.viewToggleBtn} ${viewMode === "grid" ? styles.viewToggleActive : ""}`}
-              onClick={() => { setViewMode("grid"); localStorage.setItem("mc_view_mode", "grid"); }}
-              title="Grid view"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
-              </svg>
-            </button>
-          </div>
         </div>
       </div>
 
@@ -398,28 +293,12 @@ export const InternalMissionControlHome = () => {
         )}
       </div>
 
-      {/* Board or Grid */}
-      {viewMode === "board" ? (
-        <DragDropContext onDragEnd={handleDragEnd}>
-          <div className={styles.board}>
-            {STAGE_ORDER.map((stageKey) => (
-              <BoardStage
-                key={stageKey}
-                stageKey={stageKey}
-                campaigns={filteredBoard[stageKey] || []}
-                onCardClick={handleCardClick}
-                lastViewed={lastViewed}
-              />
-            ))}
-          </div>
-        </DragDropContext>
-      ) : (
-        <GridView
-          boardData={filteredBoard}
-          onCardClick={handleCardClick}
-          lastViewed={lastViewed}
-        />
-      )}
+      {/* Grid View */}
+      <GridView
+        boardData={filteredBoard}
+        onCardClick={handleCardClick}
+        lastViewed={lastViewed}
+      />
 
       {selectedCampaign && (
         <CampaignPanel
@@ -427,13 +306,6 @@ export const InternalMissionControlHome = () => {
           onClose={handlePanelClose}
           onBoardRefresh={handleBoardRefresh}
         />
-      )}
-
-      {toast && (
-        <div className={`${styles.toast} ${toast.type === "success" ? styles.toastSuccess : styles.toastError}`}>
-          <span>{toast.message}</span>
-          <button onClick={() => setToast(null)} className={styles.toastClose}>&times;</button>
-        </div>
       )}
     </div>
   );

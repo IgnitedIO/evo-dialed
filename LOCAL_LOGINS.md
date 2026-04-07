@@ -45,3 +45,5 @@ docker compose -f compose_dev.yml up -d webserver
 - API runs at `http://localhost:11793/api`
 - Frontend runs at `http://localhost:28528`
 - Make sure `API_DEV_URL` in `.env` uses `localhost` (not `127.0.0.1`) for cookies to work
+
+- ssh ec2-user@ec2-18-118-20-11.us-east-2.compute.amazonaws.com
